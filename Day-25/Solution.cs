@@ -3,7 +3,7 @@ using Xemrox.Shared;
 
 namespace Day_25
 {
-    public class Solution : IPuzzleSolution<Day26Solution, Day25Puzzle>
+    public class Solution : IPuzzleSolution<Day25Solution, Day25Puzzle>
     {
         private const ulong DIVISOR = 20201227UL;
 
@@ -12,7 +12,7 @@ namespace Day_25
             return new Day25Puzzle(int.Parse(line));
         }
 
-        public Day26Solution SolvePuzzle(Puzzle<Day25Puzzle> puzzle)
+        public Day25Solution SolvePuzzle(Puzzle<Day25Puzzle> puzzle)
         {
             var cardCode = puzzle.Value.First();
             var doorCode = puzzle.Value.Last();
@@ -23,7 +23,7 @@ namespace Day_25
             var cardDoorEncryptionKey = TransformSubjectNumber(cardCode.PublicCode, doorLoopSize);
             var doorCardEncryptionKey = TransformSubjectNumber(doorCode.PublicCode, cardLoopSize);
 
-            return new Day26Solution()
+            return new Day25Solution()
             {
                 CardLoopSize = cardLoopSize,
                 DoorLoopSize = doorLoopSize,
