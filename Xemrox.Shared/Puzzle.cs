@@ -1,9 +1,9 @@
 ﻿namespace Xemrox.Shared;
 
-public readonly struct Puzzle<T>
+public record class Puzzle<T>
 {
-    public readonly string Name { get; init; }
-    public readonly T[] Value { get; init; }
+    public string Name { get; init; }
+    public T[] Value { get; init; }
 
     public Puzzle(string name, T[] value)
     {
