@@ -8,6 +8,19 @@ namespace Day_24
 
         public HexagonalPosition PuzzleTransformation(string line)
         {
+            var directions = ToDirections(line);
+            var currentPosition = new HexagonalPosition();
+
+            foreach (var direction in directions)
+            {
+                currentPosition = currentPosition.Shift(direction);
+            }
+
+            return currentPosition;
+        }
+
+        private static List<HexDirection> ToDirections(string line)
+        {
             var directions = new List<HexDirection>();
             for (var index = 0; index < line.Length; index++)
             {
@@ -55,26 +68,10 @@ namespace Day_24
                 }
             }
 
-            var currentPosition = new HexagonalPosition();
-
-            foreach (var direction in directions)
-            {
-                currentPosition = direction switch
-                {
-                    HexDirection.East => currentPosition.Shift(1, 0),
-                    HexDirection.West => currentPosition.Shift(-1, 0),
-                    HexDirection.SouthEast => currentPosition.Shift(1, 1),
-                    HexDirection.SouthWest => currentPosition.Shift(0, 1),
-                    HexDirection.NorthEast => currentPosition.Shift(0, -1),
-                    HexDirection.NorthWest => currentPosition.Shift(-1, -1),
-                    _ => throw new NotImplementedException(),
-                };
-            }
-
-            return currentPosition;
+            return directions;
         }
 
-        public int SolvePuzzle(Puzzle<HexagonalPosition> puzzle)
+        public virtual int SolvePuzzle(Puzzle<HexagonalPosition> puzzle)
         {
             var grid = new Grid();
             foreach (var position in puzzle.Value)
