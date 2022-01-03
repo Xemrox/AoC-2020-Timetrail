@@ -12,12 +12,10 @@
 
     public readonly struct Day26Solution
     {
-        public int DoorSubjectCode { get; init; }
         public int DoorLoopSize { get; init; }
-
-        public int CardSubjectCode { get; init; }
         public int CardLoopSize { get; init; }
 
-        public int EncryptionKey { get; init; }
+        public int CardDoorEncryptionKey { get; init; }
+        public int DoorCardEncryptionKey { get; init; }
     }
 }
