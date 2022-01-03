@@ -10,7 +10,7 @@
         }
     }
 
-    public readonly struct Day26Solution
+    public readonly struct Day25Solution
     {
         public int DoorLoopSize { get; init; }
         public int CardLoopSize { get; init; }
